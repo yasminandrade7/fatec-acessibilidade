@@ -17,5 +17,8 @@ Resolve a dificuldade de visualizar a fonte das paginas para quem tem baixa vis√
 Detalhes extras aqui.
 
 ## link para o projeto
+https://github.com/yasminandrade7/fatec-acessibilidade.git
 
 ## Membros da equipe
+Thaisa
+Yasmin
