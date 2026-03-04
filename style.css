@@ -1,0 +1,12 @@
+@charset "UTF-8";
+
+.butao {
+    background: #ffb6c1;
+  color: #1a1a1a;
+  border: none;
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity .15s ease;
+}

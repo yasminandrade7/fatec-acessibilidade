@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css">
   <title>Portal de Notícias</title>
 
   <style>
@@ -265,15 +266,17 @@
           <div class="nav-item">Tecnologia</div>
           <div class="nav-item">Esportes</div>
           <div class="nav-item">Entretenimento</div>
-        </div>
-
-        <div class="tools">
+        <div class="tools"><button class="butao" onclick="document.body.style.fontSize = 
+          (parseFloat(getComputedStyle(document.body).fontSize) + 2) + 'px'"> A+
+     </button>
+        <button class="butao" onclick="document.body.style.fontSize = 
+       (parseFloat(getComputedStyle(document.body).fontSize) - 2) + 'px'">  A-
+     </button>
+    </div>
           <div class="search" id="search">
             <div class="search-icon"></div>
             <div class="search-input">Buscar no portal… (falso input)</div>
           </div>
-         
-          
         </div>
       </div>
     </div>
