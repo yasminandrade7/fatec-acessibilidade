@@ -10,3 +10,9 @@
   cursor: pointer;
   transition: opacity .15s ease;
 }
+
+.alto-contraste, .alto-contraste *
+ { background: #000
+   !important; color: #fff
+    !important; border-color: #fff 
+    !important; }
