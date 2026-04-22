@@ -1,0 +1,583 @@
+@charset "UTF-8";
+
+:root {
+  --pink-deep: #c2185b;
+  --pink-mid: #e91e8c;
+  --pink-light: #f8a5c5;
+  --orange-hot: #ff5722;
+  --orange-warm: #ff8f00;
+  --bg: #1a0a0f;
+  --surface: #27101a;
+  --surface-2: #340d20;
+  --text: #fff5f8;
+  --text-muted: #d4a0b5;
+  --border: rgba(233, 30, 140, 0.25);
+  --radius: 12px;
+  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --erro: #ff6b6b;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.hidden { display: none; }
+
+body {
+  min-height: 100vh;
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(ellipse 80% 60% at 20% -10%, rgba(194, 24, 91, 0.35) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 90% 100%, rgba(255, 87, 34, 0.25) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 40% at 60% 50%, rgba(233, 30, 140, 0.08) 0%, transparent 70%);
+  font-family: 'DM Sans', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 16px;
+}
+
+form {
+  width: 100%;
+  max-width: 680px;
+  animation: fadeUp 0.7s ease both;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.4rem, 6vw, 3.6rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  margin-bottom: 40px;
+  background: linear-gradient(100deg, #fff5f8 10%, var(--pink-light) 45%, var(--orange-warm) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Fieldsets principais ── */
+fieldset {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  padding: 32px 28px 28px;
+  margin-bottom: 24px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color var(--transition);
+  animation: fadeUp 0.7s ease both;
+}
+
+fieldset:nth-child(2) { animation-delay: 0.1s; }
+fieldset:nth-child(3) { animation-delay: 0.2s; }
+fieldset:nth-child(4) { animation-delay: 0.3s; }
+
+fieldset::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--pink-mid), var(--orange-hot));
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+
+fieldset:focus-within { border-color: rgba(233, 30, 140, 0.5); }
+fieldset:focus-within::before { opacity: 1; }
+
+legend {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--orange-warm);
+  background: var(--surface);
+  padding: 4px 12px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 143, 0, 0.3);
+  margin-left: -4px;
+}
+
+/* ── Parágrafos agrupadores ── */
+fieldset p {
+  display: flex;
+  gap: 16px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+fieldset p:first-of-type { margin-top: 24px; }
+
+/* ── Labels ── */
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+  min-width: 160px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  transition: color var(--transition);
+}
+
+label:focus-within { color: var(--pink-light); }
+
+/* ── Inputs ── */
+input[type="text"],
+input[type="date"],
+input[type="tel"],
+input[type="email"] {
+  width: 100%;
+  background: var(--surface-2);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 13px 16px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: var(--text);
+  outline: none;
+  transition: border-color var(--transition), box-shadow var(--transition), background var(--transition);
+}
+
+input[type="text"]::placeholder,
+input[type="tel"]::placeholder,
+input[type="email"]::placeholder {
+  color: rgba(212, 160, 181, 0.25);
+}
+
+input[type="text"]:hover,
+input[type="tel"]:hover,
+input[type="email"]:hover,
+input[type="date"]:hover {
+  border-color: rgba(233, 30, 140, 0.35);
+  background: rgba(52, 13, 32, 0.9);
+}
+
+input[type="text"]:focus,
+input[type="tel"]:focus,
+input[type="email"]:focus,
+input[type="date"]:focus {
+  border-color: var(--pink-mid);
+  box-shadow: 0 0 0 3px rgba(233, 30, 140, 0.15), 0 0 20px rgba(233, 30, 140, 0.08);
+  background: rgba(52, 13, 32, 0.9);
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(0.6) sepia(1) saturate(5) hue-rotate(295deg);
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+/* ── Estado de erro nos inputs ── */
+input.input-erro {
+  border-color: var(--erro) !important;
+  box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.15) !important;
+}
+
+.erro {
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  text-transform: none;
+  color: var(--erro);
+  min-height: 1em;
+  display: block;
+}
+
+/* ── Fieldset do radio (Sexo) ── */
+.radio-fieldset {
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  animation: none;
+  flex: 1;
+  min-width: 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.radio-fieldset::before { display: none; }
+.radio-fieldset:focus-within { border-color: transparent; }
+
+.radio-legend {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  background: transparent;
+  border: none;
+  padding: 0;
+  border-radius: 0;
+  margin: 0;
+  float: left;
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+.radio-fieldset:focus-within .radio-legend { color: var(--pink-light); }
+
+.radio-label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  flex: unset;
+  min-width: unset;
+  font-size: 0.9rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 11px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  background: var(--surface-2);
+  transition: border-color var(--transition), color var(--transition), background var(--transition);
+  user-select: none;
+}
+
+.radio-label:hover {
+  border-color: rgba(233, 30, 140, 0.35);
+  background: rgba(52, 13, 32, 0.9);
+  color: var(--text);
+}
+
+/* Radio nativo escondido mas acessível */
+.radio-label input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Bolinha customizada */
+.radio-custom {
+  width: 18px;
+  height: 18px;
+  min-width: 18px;
+  border: 2px solid rgba(233, 30, 140, 0.4);
+  border-radius: 50%;
+  background: var(--surface);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color var(--transition), background var(--transition), box-shadow var(--transition);
+}
+
+.radio-custom::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #fff;
+  opacity: 0;
+  transition: opacity var(--transition), transform var(--transition);
+  transform: scale(0.5);
+}
+
+.radio-label input[type="radio"]:checked ~ .radio-custom {
+  border-color: var(--pink-mid);
+  background: linear-gradient(135deg, var(--pink-deep), var(--pink-mid));
+  box-shadow: 0 0 0 3px rgba(233, 30, 140, 0.15);
+}
+
+.radio-label input[type="radio"]:checked ~ .radio-custom::after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.radio-label:has(input[type="radio"]:checked) {
+  border-color: rgba(233, 30, 140, 0.5);
+  color: var(--pink-light);
+  background: rgba(52, 13, 32, 0.9);
+}
+
+.radio-label input[type="radio"]:focus-visible ~ .radio-custom {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(233, 30, 140, 0.3);
+  border-color: var(--pink-mid);
+}
+
+.radio-fieldset.radio-erro .radio-label {
+  border-color: rgba(255, 107, 107, 0.4);
+}
+
+/* ── Termos (usando <p> como wrapper semântico) ── */
+p.termos-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 4px;
+  margin-bottom: 20px;
+  padding: 18px 22px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  animation: fadeUp 0.7s 0.32s ease both;
+  transition: border-color var(--transition);
+}
+
+p.termos-wrapper:focus-within { border-color: rgba(233, 30, 140, 0.5); }
+
+p.termos-wrapper.termos-erro {
+  border-color: var(--erro);
+  box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.12);
+}
+
+.termos-label {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 14px;
+  cursor: pointer;
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--text-muted);
+  flex: unset;
+  min-width: unset;
+}
+
+.termos-label:focus-within { color: var(--text-muted); }
+
+/* Checkbox nativo escondido mas acessível */
+.termos-label input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Quadradinho customizado */
+.termos-custom {
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  border: 2px solid rgba(233, 30, 140, 0.4);
+  border-radius: 5px;
+  background: var(--surface-2);
+  margin-top: 1px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color var(--transition), background var(--transition), box-shadow var(--transition);
+}
+
+.termos-custom::after {
+  content: '';
+  width: 5px;
+  height: 9px;
+  border: 2px solid #fff;
+  border-top: none;
+  border-left: none;
+  transform: rotate(45deg) translate(-1px, -1px);
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+
+.termos-label input[type="checkbox"]:checked ~ .termos-custom {
+  background: linear-gradient(135deg, var(--pink-deep), var(--pink-mid));
+  border-color: var(--pink-mid);
+}
+
+.termos-label input[type="checkbox"]:checked ~ .termos-custom::after {
+  opacity: 1;
+}
+
+.termos-label input[type="checkbox"]:focus-visible ~ .termos-custom {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(233, 30, 140, 0.3);
+  border-color: var(--pink-mid);
+}
+
+.termos-texto { line-height: 1.55; }
+
+.termos-link {
+  color: var(--pink-light);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(248, 165, 197, 0.4);
+  transition: color var(--transition), border-color var(--transition);
+}
+
+.termos-link:hover {
+  color: var(--pink-mid);
+  border-color: var(--pink-mid);
+}
+
+/* ── Botão ── */
+.btn-submit {
+  display: block;
+  width: 100%;
+  margin-top: 8px;
+  padding: 17px;
+  border: none;
+  border-radius: var(--radius);
+  background: linear-gradient(110deg, var(--pink-deep) 0%, var(--pink-mid) 40%, var(--orange-hot) 100%);
+  color: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: transform var(--transition), box-shadow var(--transition), filter var(--transition);
+  animation: fadeUp 0.7s 0.4s ease both;
+}
+
+.btn-submit::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, var(--orange-hot), var(--pink-mid), var(--pink-deep));
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+
+.btn-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(233, 30, 140, 0.45);
+  filter: brightness(1.08);
+}
+
+.btn-submit:hover::before { opacity: 1; }
+.btn-submit:active { transform: translateY(0); }
+
+.btn-submit span {
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 460px) {
+  fieldset { padding: 28px 18px 22px; }
+  h1 { margin-bottom: 28px; }
+}
+
+/* ── Tabela ── */
+table {
+  width: 100%;
+  max-width: 720px;
+  border-collapse: collapse;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  animation: fadeUp 0.7s ease both;
+}
+
+/* Caption */
+caption {
+  caption-side: top;
+  text-align: left;
+  padding: 16px 20px;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+}
+
+/* Cabeçalho */
+thead {
+  background: linear-gradient(90deg, var(--pink-deep), var(--orange-hot));
+}
+
+thead th {
+  padding: 14px 16px;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #fff;
+  text-align: left;
+}
+
+/* Linhas */
+tbody tr {
+  border-top: 1px solid var(--border);
+  transition: background var(--transition);
+}
+
+tbody tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+tbody tr:hover {
+  background: rgba(233, 30, 140, 0.08);
+}
+
+/* Células */
+td, th[scope="row"] {
+  padding: 14px 16px;
+  font-size: 0.9rem;
+  color: var(--text);
+}
+
+/* Nome do filme destacado */
+th[scope="row"] {
+  color: var(--pink-light);
+  font-weight: 500;
+}
+
+/* Valores */
+td {
+  color: var(--text-muted);
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+  table {
+    font-size: 0.85rem;
+  }
+
+  thead {
+    display: none;
+  }
+
+  tbody tr {
+    display: block;
+    margin-bottom: 12px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 12px;
+  }
+
+  tbody td,
+  tbody th {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+  }
+
+  tbody td::before {
+    content: attr(data-label);
+    color: var(--text-muted);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+}
+
+/* Texto auxiliar */
+.hint {
+  margin-top: 16px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
