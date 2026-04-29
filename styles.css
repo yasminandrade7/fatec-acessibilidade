@@ -25,6 +25,7 @@
 
 .hidden { display: none; }
 
+/* ── Body ── */
 body {
   min-height: 100vh;
   background-color: var(--bg);
@@ -34,15 +35,61 @@ body {
     radial-gradient(ellipse 40% 40% at 60% 50%, rgba(233, 30, 140, 0.08) 0%, transparent 70%);
   font-family: 'DM Sans', sans-serif;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 48px 16px;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 0;
+  margin: 0;
 }
 
-form {
+/* ── Header / Nav ── */
+header {
   width: 100%;
-  max-width: 680px;
-  animation: fadeUp 0.7s ease both;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  margin: 0;
+}
+
+.nav {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  padding: 0.75rem 0;
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+}
+.nav a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1px solid transparent;
+  transition: color var(--transition), border-color var(--transition), background var(--transition);
+}
+
+.nav a:hover {
+  color: var(--pink-light);
+  border-color: var(--border);
+  background: var(--surface-2);
+}
+
+.nav a[aria-current="page"] {
+  color: var(--pink-light);
+  border-color: rgba(233, 30, 140, 0.4);
+  background: var(--surface-2);
+  font-weight: 600;
+}
+
+/* ── Layout principal ── */
+main {
+  width: 100%;
+  max-width: 720px;
+  margin: 48px auto;
+  padding: 0 16px;
 }
 
 @keyframes fadeUp {
@@ -50,6 +97,7 @@ form {
   to   { opacity: 1; transform: translateY(0); }
 }
 
+/* ── Título ── */
 h1 {
   font-family: 'Playfair Display', serif;
   font-size: clamp(2.4rem, 6vw, 3.6rem);
@@ -61,6 +109,7 @@ h1 {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  animation: fadeUp 0.7s ease both;
 }
 
 /* ── Fieldsets principais ── */
@@ -260,7 +309,6 @@ input.input-erro {
   color: var(--text);
 }
 
-/* Radio nativo escondido mas acessível */
 .radio-label input[type="radio"] {
   position: absolute;
   opacity: 0;
@@ -268,7 +316,6 @@ input.input-erro {
   height: 0;
 }
 
-/* Bolinha customizada */
 .radio-custom {
   width: 18px;
   height: 18px;
@@ -320,7 +367,7 @@ input.input-erro {
   border-color: rgba(255, 107, 107, 0.4);
 }
 
-/* ── Termos (usando <p> como wrapper semântico) ── */
+/* ── Termos ── */
 p.termos-wrapper {
   display: flex;
   flex-direction: column;
@@ -359,7 +406,6 @@ p.termos-wrapper.termos-erro {
 
 .termos-label:focus-within { color: var(--text-muted); }
 
-/* Checkbox nativo escondido mas acessível */
 .termos-label input[type="checkbox"] {
   position: absolute;
   opacity: 0;
@@ -367,7 +413,6 @@ p.termos-wrapper.termos-erro {
   height: 0;
 }
 
-/* Quadradinho customizado */
 .termos-custom {
   width: 20px;
   height: 20px;
@@ -468,15 +513,9 @@ p.termos-wrapper.termos-erro {
   z-index: 1;
 }
 
-@media (max-width: 460px) {
-  fieldset { padding: 28px 18px 22px; }
-  h1 { margin-bottom: 28px; }
-}
-
 /* ── Tabela ── */
 table {
   width: 100%;
-  max-width: 720px;
   border-collapse: collapse;
   background: var(--surface);
   border: 1px solid var(--border);
@@ -485,7 +524,6 @@ table {
   animation: fadeUp 0.7s ease both;
 }
 
-/* Caption */
 caption {
   caption-side: top;
   text-align: left;
@@ -495,7 +533,6 @@ caption {
   color: var(--text-muted);
 }
 
-/* Cabeçalho */
 thead {
   background: linear-gradient(90deg, var(--pink-deep), var(--orange-hot));
 }
@@ -509,7 +546,6 @@ thead th {
   text-align: left;
 }
 
-/* Linhas */
 tbody tr {
   border-top: 1px solid var(--border);
   transition: background var(--transition);
@@ -523,33 +559,33 @@ tbody tr:hover {
   background: rgba(233, 30, 140, 0.08);
 }
 
-/* Células */
 td, th[scope="row"] {
   padding: 14px 16px;
   font-size: 0.9rem;
   color: var(--text);
 }
 
-/* Nome do filme destacado */
 th[scope="row"] {
   color: var(--pink-light);
   font-weight: 500;
 }
 
-/* Valores */
 td {
   color: var(--text-muted);
 }
 
-/* Responsividade */
-@media (max-width: 600px) {
-  table {
-    font-size: 0.85rem;
-  }
+/* ── Texto auxiliar ── */
+.hint {
+  margin-top: 16px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
 
-  thead {
-    display: none;
-  }
+/* ── Responsividade ── */
+@media (max-width: 600px) {
+  table { font-size: 0.85rem; }
+
+  thead { display: none; }
 
   tbody tr {
     display: block;
@@ -575,9 +611,7 @@ td {
   }
 }
 
-/* Texto auxiliar */
-.hint {
-  margin-top: 16px;
-  font-size: 0.8rem;
-  color: var(--text-muted);
+@media (max-width: 460px) {
+  fieldset { padding: 28px 18px 22px; }
+  h1 { margin-bottom: 28px; }
 }

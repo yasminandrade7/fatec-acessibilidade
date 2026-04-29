@@ -1,14 +1,26 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Exemplos Acessíveis: Tabela de Cinema</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exemplos Acessíveis: Tabela de Cinema</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header>
+      <nav aria-label="Navegação principal">
+        <ul class="nav">
+          <li>
+            <a href="index.html" aria-current="page">Início</a>
+          </li>
+          <li>
+            <a href="tabela.html">Formulário</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
 
-  <main>
+    <main>
       <table>
         <caption>
           Sessões de filmes com valores de ingressos inteira e meia-entrada.
@@ -23,28 +35,27 @@
         <tbody>
           <tr>
             <th scope="row">Lost in Translation</th>
-            <td>R$ 20,00</td>
-            <td>R$ 10,00</td>
+            <td data-label="Ingresso inteira">R$ 20,00</td>
+            <td data-label="Meia-entrada">R$ 10,00</td>
           </tr>
           <tr>
             <th scope="row">Star Wars</th>
-            <td>R$ 20,00</td>
-            <td>R$ 10,00</td>
+            <td data-label="Ingresso inteira">R$ 20,00</td>
+            <td data-label="Meia-entrada">R$ 10,00</td>
           </tr>
           <tr>
             <th scope="row">Seven: Os Sete Pecados Capitais</th>
-            <td>R$ 20,00</td>
-            <td>R$ 10,00</td>
+            <td data-label="Ingresso inteira">R$ 20,00</td>
+            <td data-label="Meia-entrada">R$ 10,00</td>
           </tr>
           <tr>
             <th scope="row">Kill Bill</th>
-            <td>R$ 20,00</td>
-            <td>R$ 10,00</td>
+            <td data-label="Ingresso inteira">R$ 20,00</td>
+            <td data-label="Meia-entrada">R$ 10,00</td>
           </tr>
         </tbody>
       </table>
-      </p>
-    </section>
-  </main>
-</body>
+    </main>
+
+  </body>
 </html>

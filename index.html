@@ -7,125 +7,140 @@
     <title>Formulário</title>
   </head>
   <body>
-    <form id="formulario" novalidate>
-      <h1>Formulário</h1>
+    <header>
+      <nav aria-label="Navegação principal">
+        <ul class="nav">
+          <li>
+            <a href="index.html">Início</a>
+          </li>
+          <li>
+            <a href="tabela.html" aria-current="page">Formulário</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
 
-      <fieldset>
-        <legend>Dados Pessoais</legend>
-        <p>
-          <label for="nome">
-            Nome Completo
-            <input type="text" name="nome" id="nome" placeholder="Ex: João da Silva" required>
-            <span class="erro" id="erro-nome"></span>
-          </label>
-        </p>
-        <p>
-          <label for="cpf">
-            CPF
-            <input type="text" name="cpf" id="cpf" placeholder="000.000.000-00" maxlength="14" required aria-describedby="cpf-ajuda">
-            <small class="hidden" id="cpf-ajuda">Digite apenas números</small>
-            <span class="erro" id="erro-cpf"></span>
-          </label>
-        </p>
-        <p>
-          <label for="data-de-nascimento">
-            Data de nascimento
-            <input type="date" name="data-de-nascimento" id="data-de-nascimento" required>
-            <span class="erro" id="erro-data-de-nascimento"></span>
-          </label>
-        </p>
-        <p>
-          <fieldset class="radio-fieldset">
-            <legend class="radio-legend">Sexo</legend>
-            <label class="radio-label" for="masculino">
-              <input type="radio" name="sexo" id="masculino" value="masculino" required>
-              <span class="radio-custom" aria-hidden="true"></span>
-              Masculino
+    <main>
+      <form id="formulario" novalidate>
+        <h1>Formulário</h1>
+
+        <fieldset>
+          <legend>Dados Pessoais</legend>
+          <p>
+            <label for="nome">
+              Nome Completo
+              <input type="text" name="nome" id="nome" placeholder="Ex: João da Silva" required>
+              <span class="erro" id="erro-nome"></span>
             </label>
-            <label class="radio-label" for="feminino">
-              <input type="radio" name="sexo" id="feminino" value="feminino">
-              <span class="radio-custom" aria-hidden="true"></span>
-              Feminino
+          </p>
+          <p>
+            <label for="cpf">
+              CPF
+              <input type="text" name="cpf" id="cpf" placeholder="000.000.000-00" maxlength="14" required aria-describedby="cpf-ajuda">
+              <small class="hidden" id="cpf-ajuda">Digite apenas números</small>
+              <span class="erro" id="erro-cpf"></span>
             </label>
-            <span class="erro" id="erro-sexo"></span>
-          </fieldset>
-        </p>
-      </fieldset>
+          </p>
+          <p>
+            <label for="data-de-nascimento">
+              Data de nascimento
+              <input type="date" name="data-de-nascimento" id="data-de-nascimento" required>
+              <span class="erro" id="erro-data-de-nascimento"></span>
+            </label>
+          </p>
+          <p>
+            <fieldset class="radio-fieldset">
+              <legend class="radio-legend">Sexo</legend>
+              <label class="radio-label" for="masculino">
+                <input type="radio" name="sexo" id="masculino" value="masculino" required>
+                <span class="radio-custom" aria-hidden="true"></span>
+                Masculino
+              </label>
+              <label class="radio-label" for="feminino">
+                <input type="radio" name="sexo" id="feminino" value="feminino">
+                <span class="radio-custom" aria-hidden="true"></span>
+                Feminino
+              </label>
+              <span class="erro" id="erro-sexo"></span>
+            </fieldset>
+          </p>
+        </fieldset>
 
-      <fieldset>
-        <legend>Endereço</legend>
-        <p>
-          <label for="cep">
-            CEP
-            <input type="text" name="cep" id="cep" placeholder="00000-000" maxlength="9" required aria-describedby="cep-ajuda">
-            <small class="hidden" id="cep-ajuda">Digite apenas números</small>
-            <span class="erro" id="erro-cep"></span>
-          </label>
-          <label for="estado">
-            Estado
-            <input type="text" name="estado" id="estado" placeholder="Ex: SP" maxlength="2" required>
-            <span class="erro" id="erro-estado"></span>
-          </label>
-        </p>
-        <p>
-          <label for="rua">
-            Rua
-            <input type="text" name="rua" id="rua" placeholder="Ex: Rua das Flores" required>
-            <span class="erro" id="erro-rua"></span>
-          </label>
-          <label for="numero-da-residencia">
-            Número da residência
-            <input type="text" name="numero-da-residencia" id="numero-da-residencia" placeholder="Ex: 123" required>
-            <span class="erro" id="erro-numero-da-residencia"></span>
-          </label>
-        </p>
-        <p>
-          <label for="bairro">
-            Bairro
-            <input type="text" name="bairro" id="bairro" placeholder="Ex: Centro" required>
-            <span class="erro" id="erro-bairro"></span>
-          </label>
-          <label for="cidade">
-            Cidade
-            <input type="text" name="cidade" id="cidade" placeholder="Ex: São Paulo" required>
-            <span class="erro" id="erro-cidade"></span>
-          </label>
-        </p>
-      </fieldset>
+        <fieldset>
+          <legend>Endereço</legend>
+          <p>
+            <label for="cep">
+              CEP
+              <input type="text" name="cep" id="cep" placeholder="00000-000" maxlength="9" required aria-describedby="cep-ajuda">
+              <small class="hidden" id="cep-ajuda">Digite apenas números</small>
+              <span class="erro" id="erro-cep"></span>
+            </label>
+            <label for="estado">
+              Estado
+              <input type="text" name="estado" id="estado" placeholder="Ex: SP" maxlength="2" required>
+              <span class="erro" id="erro-estado"></span>
+            </label>
+          </p>
+          <p>
+            <label for="rua">
+              Rua
+              <input type="text" name="rua" id="rua" placeholder="Ex: Rua das Flores" required>
+              <span class="erro" id="erro-rua"></span>
+            </label>
+            <label for="numero-da-residencia">
+              Número da residência
+              <input type="text" name="numero-da-residencia" id="numero-da-residencia" placeholder="Ex: 123" required>
+              <span class="erro" id="erro-numero-da-residencia"></span>
+            </label>
+          </p>
+          <p>
+            <label for="bairro">
+              Bairro
+              <input type="text" name="bairro" id="bairro" placeholder="Ex: Centro" required>
+              <span class="erro" id="erro-bairro"></span>
+            </label>
+            <label for="cidade">
+              Cidade
+              <input type="text" name="cidade" id="cidade" placeholder="Ex: São Paulo" required>
+              <span class="erro" id="erro-cidade"></span>
+            </label>
+          </p>
+        </fieldset>
 
-      <fieldset>
-        <legend>Contato</legend>
-        <p>
-          <label for="telefone">
-            Telefone
-            <input type="tel" name="telefone" id="telefone" placeholder="(00) 00000-0000" maxlength="15" required aria-describedby="tel-ajuda">
-            <small class="hidden" id="tel-ajuda">Digite apenas números</small>
-            <span class="erro" id="erro-telefone"></span>
-          </label>
-        </p>
-        <p>
-          <label for="email">
-            E-mail
-            <input type="email" name="email" id="email" placeholder="Ex: joao@email.com" required>
-            <span class="erro" id="erro-email"></span>
-          </label>
-        </p>
-      </fieldset>
+        <fieldset>
+          <legend>Contato</legend>
+          <p>
+            <label for="telefone">
+              Telefone
+              <input type="tel" name="telefone" id="telefone" placeholder="(00) 00000-0000" maxlength="15" required aria-describedby="tel-ajuda">
+              <small class="hidden" id="tel-ajuda">Digite apenas números</small>
+              <span class="erro" id="erro-telefone"></span>
+            </label>
+          </p>
+          <p>
+            <label for="email">
+              E-mail
+              <input type="email" name="email" id="email" placeholder="Ex: joao@email.com" required>
+              <span class="erro" id="erro-email"></span>
+            </label>
+          </p>
+        </fieldset>
 
-      <p class="termos-wrapper" id="termos-wrapper">
-        <label class="termos-label" for="termos">
-          <input type="checkbox" name="termos" id="termos" required>
-          <span class="termos-custom" aria-hidden="true"></span>
-          <span class="termos-texto">
-            Li e aceito os <a href="#" class="termos-link">Termos e Condições</a> e a
-            <a href="#" class="termos-link">Política de Privacidade</a>.
-          </span>
-        </label>
-        <span class="erro" id="erro-termos"></span>
-      </p>
+        <p class="termos-wrapper" id="termos-wrapper">
+          <label class="termos-label" for="termos">
+            <input type="checkbox" name="termos" id="termos" required>
+            <span class="termos-custom" aria-hidden="true"></span>
+            <span class="termos-texto">
+              Li e aceito os <a href="#" class="termos-link">Termos e Condições</a> e a
+              <a href="#" class="termos-link">Política de Privacidade</a>.
+            </span>
+          </label>
+          <span class="erro" id="erro-termos"></span>
+        </p>
 
-      <button type="submit" class="btn-submit"><span>Salvar</span></button>
-    </form>
+        <button type="submit" class="btn-submit"><span>Salvar</span></button>
+      </form>
+    </main>
 
     <script src="script.js"></script>
   </body>
